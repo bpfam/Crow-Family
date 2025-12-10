@@ -3,90 +3,69 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CROW FAMILY — Vetrina Video</title>
+<title>CROW FAMILY — VETRINA</title>
 
 <style>
   :root{
-    --orange:#ff9d00;
-    --orange-strong:#ff5a00;
-    --bg1:#0b0502;
-    --bg2:#1b0904;
+    --orange:#ff8a00;
+    --dark:#050505;
+    --soft:#111;
   }
 
   *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family:system-ui, Arial, sans-serif;
   }
 
   body{
     min-height:100vh;
-    background:radial-gradient(circle at top,#3a1705 0%,#120603 45%,#050202 100%);
-    color:#ffe7c0;
+    background:radial-gradient(circle at top,#2a1200 0%,#0b0500 45%,#000 100%);
+    color:#fff;
   }
 
-  /* HEADER */
   header{
     position:sticky;
     top:0;
     z-index:10;
     display:flex;
     align-items:center;
-    gap:14px;
-    padding:10px 14px;
-    background:linear-gradient(180deg,#1a0703,#090302);
-    box-shadow:0 6px 20px rgba(0,0,0,.9);
-    border-bottom:1px solid rgba(255,157,0,.4);
+    gap:12px;
+    padding:14px;
+    background:linear-gradient(180deg,#140700,#050100);
+    border-bottom:1px solid rgba(255,138,0,.25);
   }
 
-  .home-btn{
+  .back{
     text-decoration:none;
-    padding:.5rem 1rem;
-    border-radius:999px;
+    padding:.45rem .9rem;
     border:1px solid var(--orange);
+    border-radius:999px;
     color:#000;
-    background:radial-gradient(circle at 20% 0%,#ffd18a 0%,var(--orange-strong) 55%,#8b3000 100%);
-    box-shadow:
-      0 0 10px rgba(255,138,0,.9),
-      0 0 25px rgba(255,90,0,.8);
-    font-size:13px;
-    font-weight:700;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
+    background:var(--orange);
+    font-size:12px;
+    font-weight:bold;
+    box-shadow:0 0 12px rgba(255,138,0,.7);
   }
 
   .logo{
-    height:64px;
-    border-radius:12px;
-    box-shadow:
-      0 0 18px rgba(255,138,0,.9),
-      0 0 34px rgba(0,0,0,1);
+    height:52px;
+    filter:
+      drop-shadow(0 0 14px rgba(255,138,0,.9))
+      drop-shadow(0 0 28px rgba(255,90,0,.7));
   }
 
-  .title-block{
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-  }
-
-  .title-main{
-    font-size:14px;
-    letter-spacing:3px;
+  .title{
+    font-size:13px;
+    letter-spacing:2px;
     text-transform:uppercase;
-    color:#ffe2aa;
+    color:#ffcc80;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
-  .title-sub{
-    font-size:11px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#ffbb66;
-    opacity:.9;
-  }
-
-  /* GRID WRAP */
   .wrap{
     max-width:1200px;
     margin:0 auto;
@@ -95,27 +74,25 @@
 
   .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
     gap:12px;
   }
 
   .card{
     padding:8px;
-    border-radius:14px;
-    background:#0c0503;
-    border:1px solid rgba(255,157,0,.35);
+    border-radius:12px;
+    background:#0a0a0a;
+    border:1px solid rgba(255,138,0,.25);
     box-shadow:
-      0 0 0 1px rgba(0,0,0,.8) inset,
-      0 0 18px rgba(0,0,0,.9),
-      0 0 25px rgba(255,90,0,.35);
-    transition:transform .12s ease, box-shadow .12s ease;
+      0 0 0 1px rgba(255,138,0,.15) inset,
+      0 0 20px rgba(255,138,0,.35),
+      0 0 40px rgba(255,90,0,.25);
+    transition:transform .15s ease, box-shadow .15s ease;
   }
 
   .card:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:
-      0 0 0 1px rgba(255,157,0,.6) inset,
-      0 0 25px rgba(255,138,0,.8);
+    transform:scale(1.04);
+    box-shadow:0 0 32px rgba(255,138,0,.6);
   }
 
   video{
@@ -130,13 +107,13 @@
     margin-top:6px;
     text-align:center;
     font-size:11px;
-    color:#ffcf88;
+    color:#ffb45a;
     word-break:break-word;
     opacity:.9;
   }
 
   .empty{
-    color:#ffcf88;
+    color:#ffb45a;
     text-align:center;
     padding:50px 14px;
     font-size:13px;
@@ -144,11 +121,11 @@
 
   footer{
     text-align:center;
-    color:#ffcf88;
-    opacity:.8;
-    padding:24px 12px 32px;
+    color:#ffb45a;
+    opacity:.75;
+    padding:26px 12px;
     font-size:11px;
-    letter-spacing:2px;
+    letter-spacing:1px;
     text-transform:uppercase;
   }
 </style>
@@ -157,12 +134,9 @@
 <body>
 
 <header>
-  <a class="home-btn" href="index.html">⬅️ Home</a>
+  <a class="back" href="index.html">⬅️ Home</a>
   <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family">
-  <div class="title-block">
-    <div class="title-main">CROW FAMILY — VETRINA</div>
-    <div class="title-sub">only real • street quality</div>
-  </div>
+  <div class="title">CROW FAMILY — VETRINA</div>
 </header>
 
 <div class="wrap">
@@ -177,48 +151,48 @@
 <script>
 (async () => {
   const owner = "bpfam";
-  const repo  = "Crow";   // 👈 nome repo giusto
-  const path  = "media";  // 👈 cartella dove carichi i video
+  const repo  = "Crow";      // ✅ QUESTO È GIÀ GIUSTO PER TE
+  const path  = "media";
+  const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-  const api = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`;
-
-  const grid  = document.getElementById("grid");
+  const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
 
   const VIDEO_RE = /\.(mp4|mov|m4v|webm|mkv|avi)$/i;
 
   try{
-    const res = await fetch(api, { headers:{ "Accept":"application/vnd.github+json" }});
-    if (!res.ok) {
-      throw new Error("HTTP " + res.status);
-    }
+    const res = await fetch(api, {
+      headers:{ "Accept":"application/vnd.github+json" }
+    });
+
+    if(!res.ok) throw new Error("404");
+
     const data = await res.json();
 
     const files = (Array.isArray(data)?data:[])
       .filter(f => f.type === "file" && VIDEO_RE.test(f.name))
-      .sort((a,b) => a.name.localeCompare(b.name));
+      .sort((a,b)=> a.name.localeCompare(b.name));
 
-    if (!files.length){
+    if(!files.length){
       empty.style.display = "block";
-      empty.textContent = "Nessun video trovato nella cartella media.";
       return;
     }
 
     for (const f of files) {
-      const encodedName = encodeURIComponent(f.name);
-      const src = `${path}/${encodedName}`;
+      const encoded = encodeURIComponent(f.name);
+      const src = `media/${encoded}`;
 
-      const card = document.createElement("div");
-      card.className = "card";
+      const card = document.createElement('div');
+      card.className = 'card';
 
-      const v = document.createElement("video");
-      v.controls   = true;
-      v.playsInline= true;
-      v.preload    = "metadata";
-      v.src        = src;
+      const v = document.createElement('video');
+      v.controls = true;
+      v.playsInline = true;
+      v.preload = "metadata";
+      v.src = src;
 
-      const name = document.createElement("div");
-      name.className = "name";
+      const name = document.createElement('div');
+      name.className = 'name';
       name.textContent = f.name;
 
       card.appendChild(v);
@@ -226,7 +200,7 @@
       grid.appendChild(card);
     }
 
-  } catch(e){
+  }catch(e){
     console.error(e);
     empty.style.display = "block";
     empty.textContent = "Errore nel caricare i file dalla cartella media.";
