@@ -14,42 +14,69 @@ body {
     text-align: center;
 }
 
+/* HEADER */
 header {
     padding: 25px;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     color: #ffae00;
     text-shadow: 0 0 12px #ff5a00;
 }
 
+/* BACK BUTTON */
 .back {
     display: inline-block;
-    margin: 18px;
-    padding: 12px 22px;
+    margin: 12px 18px 8px 18px;
+    padding: 10px 20px;
     background: #ff9d00;
-    color: black;
+    color: #000;
     font-weight: bold;
     border-radius: 10px;
     text-decoration: none;
 }
 
+/* SOTTOTITOLO */
+.sub {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-bottom: 10px;
+}
+
+/* GRIGLIA */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 14px;
     padding: 18px;
 }
 
+/* CARD */
 .item {
     background: #111;
     border-radius: 12px;
     padding: 10px;
-    box-shadow: 0 0 10px #ff8a00aa;
+    box-shadow: 0 0 12px #ff8a00aa;
 }
 
+/* FOTO */
 .item img {
     width: 100%;
     border-radius: 10px;
+    display: block;
+}
+
+/* VIDEO */
+.item video {
+    width: 100%;
+    border-radius: 10px;
+    background:#000;
+}
+
+/* TITOLO SOTTO CARD (OPZIONALE) */
+.caption {
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: 0.85;
 }
 </style>
 </head>
@@ -59,12 +86,54 @@ header {
 <header>🎥 CROW FAMILY — VETRINA</header>
 
 <a href="index.html" class="back">⬅️ Torna indietro</a>
+<div class="sub">Foto + Video direttamente dalla Family.</div>
 
 <div class="grid">
-    <!-- QUI METTERAI FOTO E VIDEO -->
-    <div class="item"><img src="https://via.placeholder.com/300x300"></div>
-    <div class="item"><img src="https://via.placeholder.com/300x300"></div>
-    <div class="item"><img src="https://via.placeholder.com/300x300"></div>
+
+    <!-- 🔥 VIDEO 1 (file in /media/video1.mp4) -->
+    <div class="item">
+        <video controls poster="">
+            <source src="media/video1.mp4" type="video/mp4">
+        </video>
+        <div class="caption">Video 1 — modifica testo</div>
+    </div>
+
+    <!-- 🔥 VIDEO 2 -->
+    <div class="item">
+        <video controls poster="">
+            <source src="media/video2.mp4" type="video/mp4">
+        </video>
+        <div class="caption">Video 2 — modifica testo</div>
+    </div>
+
+    <!-- 🔥 VIDEO 3 -->
+    <div class="item">
+        <video controls poster="">
+            <source src="media/video3.mp4" type="video/mp4">
+        </video>
+        <div class="caption">Video 3 — modifica testo</div>
+    </div>
+
+    <!-- 📸 FOTO 1 (immagine secca) -->
+    <div class="item">
+        <img src="https://via.placeholder.com/300x300" alt="Foto 1">
+        <div class="caption">Foto 1 — modifica testo</div>
+    </div>
+
+    <!-- 📸 FOTO 2 CHE APRE UN VIDEO ESTERNO (es. Telegram) -->
+    <div class="item">
+        <a href="https://t.me/tuocanale/123" target="_blank">
+            <img src="https://via.placeholder.com/300x300" alt="Foto 2">
+        </a>
+        <div class="caption">Foto 2 → apre video su Telegram</div>
+    </div>
+
+    <!-- 📸 FOTO 3 -->
+    <div class="item">
+        <img src="https://via.placeholder.com/300x300" alt="Foto 3">
+        <div class="caption">Foto 3 — modifica testo</div>
+    </div>
+
 </div>
 
 </body>
