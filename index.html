@@ -6,11 +6,12 @@
 <title>CROW FAMILY — Official Links</title>
 
 <style>
+    /* -------- BASE -------- */
     body {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', sans-serif;
-        background: #0d0d0d;
+        background: #050505;
         color: #f5f5f5;
         text-align: center;
         overflow-x: hidden;
@@ -26,21 +27,54 @@
         background-size: cover;
         background-position: center;
         opacity: 0.18;
+        z-index: -2;
+    }
+
+    /* FUMO ANIMATO */
+    body::after {
+        content: "";
+        position: fixed;
+        left: -50%;
+        top: -220px;
+        width: 200%;
+        height: 420px;
+        background:
+          radial-gradient(circle at 10% 20%, rgba(255,180,80,0.18), transparent 60%),
+          radial-gradient(circle at 80% 10%, rgba(255,120,40,0.22), transparent 60%),
+          radial-gradient(circle at 50% 80%, rgba(255,255,255,0.10), transparent 65%);
+        filter: blur(14px);
+        opacity: 0.7;
+        animation: smokeMove 18s infinite alternate ease-in-out;
+        pointer-events: none;
         z-index: -1;
+    }
+
+    @keyframes smokeMove {
+        0%   { transform: translate3d(0,0,0) scale(1);    opacity: 0.6; }
+        50%  { transform: translate3d(0,40px,0) scale(1.05); opacity: 0.8; }
+        100% { transform: translate3d(0,80px,0) scale(1.1); opacity: 0.5; }
+    }
+
+    /* -------- CONTENUTO -------- */
+    .wrapper {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 30px 12px 40px 12px;
     }
 
     /* Logo */
     .logo {
-        width: 85%;
-        max-width: 420px;
-        margin: 35px auto 10px auto;
+        width: 100%;
+        max-width: 430px;
+        margin: 25px auto 8px auto;
         filter: drop-shadow(0 0 18px #ff8800aa);
+        display: block;
     }
 
     /* Titolo graffiti */
     h1 {
         font-size: 38px;
-        margin-top: 5px;
+        margin-top: 4px;
         font-weight: 900;
         letter-spacing: 3px;
         text-transform: uppercase;
@@ -48,11 +82,20 @@
         text-shadow: 0 0 8px #ffae00, 0 0 20px #ff3c00;
     }
 
-    /* Pulsanti */
+    /* Sottotitolo piccolo */
+    .subtitle {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.7;
+        margin-bottom: 12px;
+    }
+
+    /* Pulsanti link principale (linktree) */
     .btn {
         display: block;
-        width: 82%;
-        max-width: 420px;
+        width: 88%;
+        max-width: 440px;
         margin: 18px auto;
         padding: 18px;
         border-radius: 14px;
@@ -62,42 +105,160 @@
         color: #0d0d0d;
         background: linear-gradient(180deg, #ffd34f, #ff9d00);
         box-shadow: 0 0 12px #ffb100aa, 0 0 28px #ff7700aa inset;
-        transition: 0.2s;
+        transition: 0.18s;
     }
+
     .btn:hover {
-        transform: scale(1.05);
+        transform: translateY(-2px) scale(1.04);
         box-shadow: 0 0 18px #ffb100, 0 0 38px #ff6a00 inset;
     }
 
-    footer {
-        margin-top: 40px;
-        margin-bottom: 20px;
-        font-size: 16px;
+    /* -------- VETRINA -------- */
+    .vetrina {
+        margin-top: 30px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .vetrina h2 {
+        font-size: 22px;
+        margin-bottom: 4px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #f7cf6b;
+        text-shadow: 0 0 10px #ffb100aa;
+    }
+
+    .v-sub {
+        font-size: 13px;
         opacity: 0.7;
+        margin-bottom: 16px;
+    }
+
+    .v-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 6px;
+    }
+
+    @media (min-width: 540px) {
+        .v-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .v-card {
+        position: relative;
+        background: radial-gradient(circle at top, #2b1b0c, #050505);
+        border-radius: 14px;
+        padding: 14px 10px 16px 10px;
+        border: 1px solid rgba(255,190,80,0.35);
+        box-shadow: 0 0 16px #000000dd, 0 0 22px rgba(255,120,0,0.35);
+        transform: translateY(0);
+        transition: 0.18s;
+    }
+
+    .v-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 0 20px #000, 0 0 28px rgba(255,150,0,0.55);
+    }
+
+    .v-card h3 {
+        font-size: 15px;
+        margin: 0 0 6px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .v-card p {
+        font-size: 12px;
+        margin: 0;
+        opacity: 0.8;
+    }
+
+    .tag {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        font-size: 11px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ffef9a, #ffb22e);
+        color: #241000;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    footer {
+        margin-top: 36px;
+        margin-bottom: 18px;
+        font-size: 15px;
+        opacity: 0.75;
         letter-spacing: 1px;
     }
 </style>
 </head>
 
 <body>
+<div class="wrapper">
 
     <!-- LOGO -->
-    <img src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" class="logo">
+    <img src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" class="logo" alt="Crow Family Logo">
 
     <!-- TITOLO -->
     <h1>CROW FAMILY</h1>
+    <div class="subtitle">Only Real • Street Mentality</div>
 
-    <!-- LINK BUTTONS -->
-    <a class="btn" href="https://www.instagram.com/crow_family22?igsh=aTFtZHBzb2swNmh5" target="_blank">📸 Instagram</a>
+    <!-- LINK PRINCIPALI -->
+    <a class="btn" href="https://www.instagram.com/crow_family22?igsh=aTFtZHBzb2swNmh5" target="_blank">
+        📸 Instagram
+    </a>
 
-    <a class="btn" href="https://t.me/+lHQ_1nCAQOwxYmNk" target="_blank">📢 Canale Telegram</a>
+    <a class="btn" href="https://t.me/+lHQ_1nCAQOwxYmNk" target="_blank">
+        📢 Canale Telegram
+    </a>
 
-    <a class="btn" href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f" target="_blank">🔒 Gruppo Signal</a>
+    <a class="btn" href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f" target="_blank">
+        🔒 Gruppo Signal
+    </a>
 
-    <a class="btn" href="https://t.me/Crowfamily2" target="_blank">💬 Contatto Telegram</a>
+    <a class="btn" href="https://t.me/Crowfamily2" target="_blank">
+        💬 Contatto Telegram
+    </a>
+
+    <!-- VETRINA -->
+    <section class="vetrina">
+        <h2>🧨 Vetrina CROW</h2>
+        <p class="v-sub">Solo chi resta con la Family vede cosa succede qui sotto.</p>
+
+        <div class="v-grid">
+            <!-- CARD 1 -->
+            <div class="v-card">
+                <span class="tag">NEW</span>
+                <h3>🔥 Drops del Giorno</h3>
+                <p>Aggiornamenti veloci, info fresh e tutto quello che succede adesso nella CROW FAMILY.</p>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="v-card">
+                <span class="tag">FAM</span>
+                <h3>💥 Area Family</h3>
+                <p>Spazio dedicato ai veri presenti: chi supporta, invita, resta e spinge il nome CROW.</p>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="v-card">
+                <span class="tag">VIP</span>
+                <h3>🎯 Zone Riservate</h3>
+                <p>Accessi speciali, info extra e sorprese per chi dimostra di valere il corvo sul petto.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>🔥 CROW FAMILY — Only Real 🔥</footer>
 
+</div>
 </body>
 </html>
