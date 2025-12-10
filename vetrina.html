@@ -141,7 +141,7 @@
 
 <div class="wrap">
   <div id="grid" class="grid"></div>
-  <div id="empty" class="empty" style="display:none;">Nessun video trovato.</div>
+  <div id="empty" class="empty" style="display:none;">Nessun video trovato nella cartella media.</div>
 </div>
 
 <footer>
@@ -151,8 +151,8 @@
 <script>
 (async () => {
   const owner = "bpfam";
-  const repo  = "bpfam.github.io";   // 🔥 QUI LA MODIFICA IMPORTANTE
-  const path  = "media";
+  const repo  = "bpfam.github.io";     // repo del sito
+  const path  = "Crow-Family/media";   // 🔥 cartella giusta dentro il repo
   const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
   const grid = document.getElementById("grid");
@@ -181,6 +181,7 @@
 
     for (const f of files) {
       const encoded = encodeURIComponent(f.name);
+      // la pagina è in Crow-Family/, la cartella è Crow-Family/media → path relativo:
       const src = `media/${encoded}`;
 
       const card = document.createElement('div');
