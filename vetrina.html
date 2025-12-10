@@ -151,7 +151,7 @@
 <script>
 (async () => {
   const owner = "bpfam";
-  const repo  = "Crow";      // ✅ QUESTO È GIÀ GIUSTO PER TE
+  const repo  = "bpfam.github.io";   // 🔥 QUI LA MODIFICA IMPORTANTE
   const path  = "media";
   const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
@@ -165,7 +165,7 @@
       headers:{ "Accept":"application/vnd.github+json" }
     });
 
-    if(!res.ok) throw new Error("404");
+    if(!res.ok) throw new Error("HTTP " + res.status);
 
     const data = await res.json();
 
@@ -175,6 +175,7 @@
 
     if(!files.length){
       empty.style.display = "block";
+      empty.textContent = "Nessun video trovato nella cartella media.";
       return;
     }
 
