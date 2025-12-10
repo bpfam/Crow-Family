@@ -1,124 +1,409 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>CROW FAMILY</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CROW FAMILY — Only Real</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    :root {
+      --bg-dark: #050608;
+      --accent: #ffb000;
+      --accent-soft: #ff7a1a;
+      --danger: #ff3b3b;
+      --text-main: #f5f5f5;
+      --text-muted: #b3b3b3;
+      --card-bg: rgba(5, 5, 10, 0.92);
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --shadow-strong: 0 0 45px rgba(0, 0, 0, 0.9);
+      --glow-accent: 0 0 35px rgba(255, 176, 0, 0.45);
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      color: #fff;
-      text-align: center;
+      padding: 0;
     }
 
-    .container {
-      padding: 30px 20px 80px;
-      max-width: 430px;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #e9e2d0;
-      text-shadow: 3px 3px 0 #000;
-    }
-
-    .logo-box {
-      margin: 20px auto 30px;
-      width: 260px;
-      height: 260px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255, 140, 0, 0.9);
-      overflow: hidden;
-    }
-
-    .logo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      margin: 14px auto;
-      padding: 18px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #000;
-      background: linear-gradient(90deg, #ff9900, #ff5500);
-      box-shadow: 0 0 20px #ff6600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px #ff8800;
-    }
-
-    .icons-row {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .icon {
-      width: 70px;
-      height: 70px;
-      background: gold;
-      border-radius: 50%;
+    body {
+      min-height: 100vh;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,130,40,0.25) 0, transparent 45%),
+        radial-gradient(circle at 90% 100%, rgba(255,190,60,0.18) 0, transparent 50%),
+        repeating-linear-gradient(
+          0deg,
+          #050608 0,
+          #050608 12px,
+          #0b0d10 12px,
+          #0b0d10 13px
+        ),
+        #050608;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      color: #000;
-      box-shadow: 0 0 20px gold;
+      padding: 24px 14px 32px;
     }
 
-    .footer {
-      margin-top: 40px;
-      font-size: 14px;
+    .shell {
+      width: 100%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.02) 0, rgba(5,5,10,0.95) 55%);
+      border-radius: 32px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-strong);
+      padding: 18px 18px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,75,75,0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255,176,0,0.18) 0, transparent 55%);
       opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .shell-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER ------------------------------------------------------ */
+
+    .brand {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .brand-title {
+      font-family: "Bebas Neue", system-ui, sans-serif;
+      letter-spacing: 0.15em;
+      font-size: clamp(34px, 7vw, 42px);
+      text-transform: uppercase;
+      color: #fef4e8;
+      text-shadow:
+        0 0 18px rgba(0, 0, 0, 0.9),
+        0 0 32px rgba(255, 150, 0, 0.55),
+        0 0 60px rgba(255, 60, 0, 0.5);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
+
+    /* HERO -------------------------------------------------------- */
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 18px auto 14px;
+    }
+
+    .hero-frame {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      padding: 6px;
+      background:
+        radial-gradient(circle at 30% 0%, #ffffff 0, #f3e2c8 28%, #f1993a 50%, #ff3b3b 65%, rgba(0,0,0,0.95) 100%);
+      box-shadow:
+        0 0 45px rgba(255, 100, 0, 0.65),
+        0 0 80px rgba(0, 0, 0, 1);
+      position: relative;
+    }
+
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: inherit;
+      border: 2px solid rgba(0,0,0,0.75);
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.8);
+      pointer-events: none;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 10%, #313131 0, #050608 65%);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .tag-chip {
+      position: absolute;
+      bottom: 14px;
+      right: 22px;
+      background: rgba(0, 0, 0, 0.82);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      border: 1px solid rgba(255, 176, 0, 0.5);
+      box-shadow: var(--glow-accent);
+    }
+
+    /* TEXT -------------------------------------------------------- */
+
+    .intro {
+      text-align: center;
+      margin: 10px 6px 18px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+
+    .intro strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* BUTTONS ----------------------------------------------------- */
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.92), rgba(20,20,25,0.96)),
+        radial-gradient(circle at 0 0, rgba(255,176,0,0.3) 0, transparent 45%);
+      color: var(--text-main);
+      text-decoration: none;
+      box-shadow:
+        0 12px 26px rgba(0,0,0,0.9),
+        0 0 18px rgba(0,0,0,0.8);
+      transition:
+        transform 0.15s ease-out,
+        box-shadow 0.15s ease-out,
+        border-color 0.15s ease-out,
+        background 0.15s ease-out;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 176, 0, 0.7);
+      box-shadow:
+        0 16px 30px rgba(0,0,0,1),
+        0 0 24px rgba(255, 176, 0, 0.45);
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.98), rgba(40,24,8,0.98)),
+        radial-gradient(circle at 0 0, rgba(255,176,0,0.4) 0, transparent 46%);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 17px;
+      background: radial-gradient(circle at 30% 0%, #ffe29f 0, #ffa99f 55%, #ff3b3b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow:
+        0 0 18px rgba(0,0,0,0.7),
+        0 0 25px rgba(255, 140, 0, 0.55);
+      color: #1b0904;
+    }
+
+    .link-label-main {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .link-label-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,176,0,0.6);
+      background: rgba(0,0,0,0.75);
+    }
+
+    /* FOOTER ------------------------------------------------------ */
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .footer span {
+      color: var(--danger);
+    }
+
+    @media (max-width: 400px) {
+      .shell {
+        padding: 16px 14px 19px;
+        border-radius: 26px;
+      }
+      .hero-frame {
+        width: 200px;
+        height: 200px;
+      }
+      .link-btn {
+        padding: 10px 13px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="shell">
+    <div class="shell-inner">
+      <header class="brand">
+        <div class="brand-title">CROW FAMILY</div>
+        <div class="brand-sub">ONLY REAL VIBES</div>
+      </header>
 
-  <div class="container">
+      <section class="hero" aria-label="Logo Crow Family">
+        <div class="hero-frame">
+          <div class="hero-img-wrap">
+            <!--
+              🔥 SOSTITUISCI QUI l'URL con il link diretto del tuo logo CROW FAMILY
+              (ad es. da postimg / imgbb)
+            -->
+            <img
+              class="hero-img"
+              src="https://i.postimg.cc/XXXXXXXX/crow-family-logo.jpg"
+              alt="Crow Family logo"
+            />
+          </div>
+          <div class="tag-chip">Street Family</div>
+        </div>
+      </section>
 
-    <h1>CROW FAMILY</h1>
+      <p class="intro">
+        Qui non entri per caso. <strong>CROW FAMILY</strong> è rispetto, qualità
+        e mentalità di strada. Scegli il canale giusto e connettiti con la fam.
+      </p>
 
-    <!-- LOGO -->
-    <div class="logo-box">
-      <img src="https://i.postimg.cc/REPLACE-QUI.jpg" alt="Crow Family Logo">
+      <main class="links" aria-label="Link social Crow Family">
+        <!-- INSTAGRAM -->
+        <a
+          class="link-btn"
+          href="https://www.instagram.com/crow_family22?igsh=aTFtZHBzb2swNmh5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-left">
+            <div class="icon-pill">📸</div>
+            <div>
+              <div class="link-label-main">Instagram</div>
+              <div class="link-label-sub">@crow_family22</div>
+            </div>
+          </div>
+          <div class="badge">Social</div>
+        </a>
+
+        <!-- CANALE TELEGRAM -->
+        <a
+          class="link-btn"
+          href="https://t.me/+lHQ_1nCAQOwxYmNk"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-left">
+            <div class="icon-pill">📢</div>
+            <div>
+              <div class="link-label-main">Canale Telegram</div>
+              <div class="link-label-sub">News &amp; drop ufficiali</div>
+            </div>
+          </div>
+          <div class="badge">Broadcast</div>
+        </a>
+
+        <!-- GRUPPO SIGNAL -->
+        <a
+          class="link-btn"
+          href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-left">
+            <div class="icon-pill">🔐</div>
+            <div>
+              <div class="link-label-main">Gruppo Signal</div>
+              <div class="link-label-sub">Chat più riservata</div>
+            </div>
+          </div>
+          <div class="badge">Private</div>
+        </a>
+
+        <!-- CONTATTO TELEGRAM -->
+        <a
+          class="link-btn"
+          href="https://t.me/Crowfamily2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-left">
+            <div class="icon-pill">💬</div>
+            <div>
+              <div class="link-label-main">Contatto Telegram</div>
+              <div class="link-label-sub">@Crowfamily2</div>
+            </div>
+          </div>
+          <div class="badge">Direct</div>
+        </a>
+      </main>
+
+      <footer class="footer">
+        <span>🔥</span> CROW FAMILY — Only Real <span>🔥</span>
+      </footer>
     </div>
-
-    <!-- LINK -->
-    <a class="btn" href="https://www.instagram.com/crow_family22" target="_blank">📸 Instagram</a>
-    <a class="btn" href="https://t.me/+lHQ_1nCAQOwxYmNk" target="_blank">📢 Canale Telegram</a>
-    <a class="btn" href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f" target="_blank">🔒 Gruppo Signal</a>
-    <a class="btn" href="https://t.me/crow_family22" target="_blank">💬 Contatto Telegram</a>
-
-    <!-- ICONE -->
-    <div class="icons-row">
-      <div class="icon">📸</div>
-      <div class="icon">✈️</div>
-      <div class="icon">💬</div>
-    </div>
-
-    <div class="footer">
-      🔥 CROW FAMILY — ONLY REAL 🔥
-    </div>
-
   </div>
-
 </body>
 </html>
