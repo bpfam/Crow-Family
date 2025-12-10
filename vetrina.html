@@ -3,28 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CROW FAMILY — Vetrina</title>
+<title>CROW FAMILY — Vetrina Video</title>
 
 <style>
   :root{
-    --crow-orange:#ff8a00;
-    --crow-red:#ff3b00;
-    --bg1:#050505;
-    --bg2:#000;
+    --orange:#ff9d00;
+    --orange-strong:#ff5a00;
+    --bg1:#0b0502;
+    --bg2:#1b0904;
   }
 
   *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:system-ui, Arial, sans-serif;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   body{
     min-height:100vh;
-    background:
-      radial-gradient(circle at top,#3b1800 0%,#120605 40%,#000 100%);
-    color:#ffe9c7;
+    background:radial-gradient(circle at top,#3a1705 0%,#120603 45%,#050202 100%);
+    color:#ffe7c0;
   }
 
   /* HEADER */
@@ -34,55 +33,65 @@
     z-index:10;
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:12px 14px;
-    background:linear-gradient(180deg,#120605,#050505);
-    border-bottom:1px solid rgba(255,138,0,.35);
-    box-shadow:0 12px 35px rgba(0,0,0,.85);
+    gap:14px;
+    padding:10px 14px;
+    background:linear-gradient(180deg,#1a0703,#090302);
+    box-shadow:0 6px 20px rgba(0,0,0,.9);
+    border-bottom:1px solid rgba(255,157,0,.4);
   }
 
-  .left{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:0;
-  }
-
-  .back{
+  .home-btn{
     text-decoration:none;
-    padding:.45rem .9rem;
+    padding:.5rem 1rem;
     border-radius:999px;
-    border:1px solid var(--crow-orange);
-    color:var(--crow-orange);
-    font-size:12px;
-    font-weight:600;
+    border:1px solid var(--orange);
+    color:#000;
+    background:radial-gradient(circle at 20% 0%,#ffd18a 0%,var(--orange-strong) 55%,#8b3000 100%);
     box-shadow:
-      0 0 12px rgba(255,138,0,.9),
-      0 0 26px rgba(255,59,0,.6);
-    background:rgba(0,0,0,.65);
+      0 0 10px rgba(255,138,0,.9),
+      0 0 25px rgba(255,90,0,.8);
+    font-size:13px;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
   }
 
   .logo{
     height:64px;
-    border-radius:16px;
+    border-radius:12px;
     box-shadow:
-      0 0 18px rgba(255,138,0,.85),
-      0 0 38px rgba(255,59,0,.65);
+      0 0 18px rgba(255,138,0,.9),
+      0 0 34px rgba(0,0,0,1);
   }
 
-  .title{
-    font-size:13px;
-    letter-spacing:2px;
+  .title-block{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .title-main{
+    font-size:14px;
+    letter-spacing:3px;
     text-transform:uppercase;
-    color:#ffd59a;
-    text-shadow:0 0 10px rgba(255,138,0,.9);
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    color:#ffe2aa;
   }
 
-  /* GRID */
-  .wrap{ max-width:1200px; margin:0 auto; padding:16px; }
+  .title-sub{
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#ffbb66;
+    opacity:.9;
+  }
+
+  /* GRID WRAP */
+  .wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:16px;
+  }
 
   .grid{
     display:grid;
@@ -93,26 +102,23 @@
   .card{
     padding:8px;
     border-radius:14px;
-    background:radial-gradient(circle at top, #2a1100 0%, #050505 55%, #000 100%);
-    border:1px solid rgba(255,138,0,.45);
+    background:#0c0503;
+    border:1px solid rgba(255,157,0,.35);
     box-shadow:
-      0 0 0 1px rgba(255,59,0,.4) inset,
-      0 0 22px rgba(255,138,0,.7),
-      0 0 45px rgba(255,59,0,.55);
-    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      0 0 0 1px rgba(0,0,0,.8) inset,
+      0 0 18px rgba(0,0,0,.9),
+      0 0 25px rgba(255,90,0,.35);
+    transition:transform .12s ease, box-shadow .12s ease;
   }
 
   .card:hover{
-    transform:scale(1.03);
-    border-color:rgba(255,255,255,.9);
+    transform:translateY(-3px) scale(1.02);
     box-shadow:
-      0 0 32px rgba(255,184,77,1),
-      0 0 64px rgba(255,59,0,.9);
+      0 0 0 1px rgba(255,157,0,.6) inset,
+      0 0 25px rgba(255,138,0,.8);
   }
 
-  /* MEDIA */
-  video,
-  img.media{
+  video{
     width:100%;
     aspect-ratio:3/4;
     object-fit:cover;
@@ -120,21 +126,17 @@
     background:#000;
   }
 
-  img.media{
-    aspect-ratio:1/1;
-  }
-
   .name{
     margin-top:6px;
     text-align:center;
     font-size:11px;
-    color:#ffd8a1;
+    color:#ffcf88;
     word-break:break-word;
     opacity:.9;
   }
 
   .empty{
-    color:#ffd8a1;
+    color:#ffcf88;
     text-align:center;
     padding:50px 14px;
     font-size:13px;
@@ -142,11 +144,11 @@
 
   footer{
     text-align:center;
-    color:#ffd8a1;
-    opacity:.75;
-    padding:22px 12px 28px;
+    color:#ffcf88;
+    opacity:.8;
+    padding:24px 12px 32px;
     font-size:11px;
-    letter-spacing:1px;
+    letter-spacing:2px;
     text-transform:uppercase;
   }
 </style>
@@ -155,93 +157,79 @@
 <body>
 
 <header>
-  <div class="left">
-    <a class="back" href="index.html">⬅️ Home</a>
-    <!-- LOGO CROW FAMILY -->
-    <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family">
-    <div class="title">Crow Family — Vetrina</div>
+  <a class="home-btn" href="index.html">⬅️ Home</a>
+  <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family">
+  <div class="title-block">
+    <div class="title-main">CROW FAMILY — VETRINA</div>
+    <div class="title-sub">only real • street quality</div>
   </div>
 </header>
 
 <div class="wrap">
   <div id="grid" class="grid"></div>
-  <div id="empty" class="empty" style="display:none;">
-    Nessun file trovato nella cartella <b>media</b>.
-  </div>
+  <div id="empty" class="empty" style="display:none;">Nessun video trovato.</div>
 </div>
 
 <footer>
-  © Crow Family • Only Real • Street Quality
+  © CROW FAMILY • ONLY REAL • STREET QUALITY
 </footer>
 
 <script>
 (async () => {
-  // ⚠️ CONTROLLA CHE QUESTI 3 SIANO GIUSTI
   const owner = "bpfam";
-  const repo  = "Crow-Family-";   // deve essere IDENTICO al nome del repo su GitHub
-  const path  = "media";          // cartella dove carichi foto/video
+  const repo  = "Crow";   // 👈 nome repo giusto
+  const path  = "media";  // 👈 cartella dove carichi i video
 
-  const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  const api = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`;
+
   const grid  = document.getElementById("grid");
   const empty = document.getElementById("empty");
 
-  const VIDEO_RE = /\.(mp4|mov|m4v|webm)$/i;
-  const IMG_RE   = /\.(jpe?g|png|gif|webp)$/i;
+  const VIDEO_RE = /\.(mp4|mov|m4v|webm|mkv|avi)$/i;
 
   try{
-    const res = await fetch(api, {
-      headers:{ "Accept":"application/vnd.github+json" }
-    });
-
-    if (!res.ok){
+    const res = await fetch(api, { headers:{ "Accept":"application/vnd.github+json" }});
+    if (!res.ok) {
       throw new Error("HTTP " + res.status);
     }
-
     const data = await res.json();
 
     const files = (Array.isArray(data)?data:[])
-      .filter(f => f.type === "file" && (VIDEO_RE.test(f.name) || IMG_RE.test(f.name)))
-      .sort((a,b)=> a.name.localeCompare(b.name));
+      .filter(f => f.type === "file" && VIDEO_RE.test(f.name))
+      .sort((a,b) => a.name.localeCompare(b.name));
 
-    if(!files.length){
+    if (!files.length){
       empty.style.display = "block";
+      empty.textContent = "Nessun video trovato nella cartella media.";
       return;
     }
 
     for (const f of files) {
-      const encoded = encodeURIComponent(f.name);
-      const src = `${path}/${encoded}`;
+      const encodedName = encodeURIComponent(f.name);
+      const src = `${path}/${encodedName}`;
 
       const card = document.createElement("div");
       card.className = "card";
 
-      let media;
-      if (VIDEO_RE.test(f.name)){
-        media = document.createElement("video");
-        media.controls    = true;
-        media.playsInline = true;
-        media.preload     = "metadata";
-      } else {
-        media = document.createElement("img");
-        media.classList.add("media");
-      }
-      media.src = src;
+      const v = document.createElement("video");
+      v.controls   = true;
+      v.playsInline= true;
+      v.preload    = "metadata";
+      v.src        = src;
 
       const name = document.createElement("div");
       name.className = "name";
       name.textContent = f.name;
 
-      card.appendChild(media);
+      card.appendChild(v);
       card.appendChild(name);
       grid.appendChild(card);
     }
 
-  }catch(e){
+  } catch(e){
     console.error(e);
     empty.style.display = "block";
-    empty.textContent =
-      "Errore nel caricare i file dalla cartella media. ("
-      + e.message + ")";
+    empty.textContent = "Errore nel caricare i file dalla cartella media.";
   }
 })();
 </script>
