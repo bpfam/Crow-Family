@@ -3,39 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CROW FAMILY — Official Links</title>
+<title>CROW FAMILY — Official</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial', sans-serif;
     background: #050505;
     color: #f5f5f5;
     text-align: center;
     overflow-x: hidden;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('https://i.postimg.cc/5tRFzVqh/wall-dark-texture.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.18;
-    z-index: -2;
-}
-
-/* FUMO ANIMATO */
+/* FUMO */
 body::after {
     content: "";
     position: fixed;
     left: -50%;
-    top: -220px;
+    top: -200px;
     width: 200%;
-    height: 420px;
+    height: 400px;
     background:
       radial-gradient(circle at 10% 20%, rgba(255,180,80,0.18), transparent 60%),
       radial-gradient(circle at 80% 10%, rgba(255,120,40,0.22), transparent 60%),
@@ -48,9 +36,8 @@ body::after {
 }
 
 @keyframes smokeMove {
-    0%   { transform: translate3d(0,0,0) scale(1);    opacity: 0.6; }
-    50%  { transform: translate3d(0,40px,0) scale(1.05); opacity: 0.8; }
-    100% { transform: translate3d(0,80px,0) scale(1.1); opacity: 0.5; }
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(60px); }
 }
 
 .wrapper {
@@ -62,29 +49,25 @@ body::after {
 /* LOGO */
 .logo {
     width: 100%;
-    max-width: 430px;
-    margin: 25px auto 8px auto;
+    max-width: 420px;
+    margin: 25px auto 10px auto;
     filter: drop-shadow(0 0 18px #ff8800aa);
-    display: block;
 }
 
 /* TITOLO */
 h1 {
-    font-size: 38px;
-    margin-top: 4px;
-    font-weight: 900;
+    font-size: 36px;
+    margin-top: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #f0d9a5;
-    text-shadow: 0 0 8px #ffae00, 0 0 20px #ff3c00;
+    text-shadow: 0 0 10px #ff9d00;
 }
 
 .subtitle {
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.7;
-    margin-bottom: 12px;
+    opacity: 0.75;
+    margin-bottom: 14px;
 }
 
 /* BOTTONI */
@@ -106,7 +89,6 @@ h1 {
 
 .btn:hover {
     transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 0 18px #ffb100, 0 0 38px #ff6a00 inset;
 }
 
 footer {
@@ -114,7 +96,6 @@ footer {
     margin-bottom: 18px;
     font-size: 15px;
     opacity: 0.75;
-    letter-spacing: 1px;
 }
 </style>
 </head>
@@ -122,26 +103,23 @@ footer {
 <body>
 <div class="wrapper">
 
-    <!-- LOGO -->
-    <img src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" class="logo" alt="Crow Family Logo">
+<img src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" class="logo">
 
-    <!-- TITOLO -->
-    <h1>CROW FAMILY</h1>
-    <div class="subtitle">Only Real • Street Mentality</div>
+<h1>CROW FAMILY</h1>
+<div class="subtitle">Only Real • Street Mentality</div>
 
-    <!-- LINK -->
-    <a class="btn" href="https://www.instagram.com/crow_family22?igsh=aTFtZHBzb2swNmh5" target="_blank">📸 Instagram</a>
+<a class="btn" href="https://www.instagram.com/crow_family22?igsh=aTFtZHBzb2swNmh5" target="_blank">📸 Instagram</a>
 
-    <a class="btn" href="https://t.me/+lHQ_1nCAQOwxYmNk" target="_blank">📢 Canale Telegram</a>
+<a class="btn" href="https://t.me/+lHQ_1nCAQOwxYmNk" target="_blank">📢 Canale Telegram</a>
 
-    <a class="btn" href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f" target="_blank">🔒 Gruppo Signal</a>
+<a class="btn" href="https://signal.group/#CjQKINimaUyqCIDc2qzwVo-Ew4OMl7IYLch-GBplvGr-eE_aEhDrOJxSVlWNbphfsW7XXn2f" target="_blank">🔒 Gruppo Signal</a>
 
-    <a class="btn" href="https://t.me/Crowfamily2" target="_blank">💬 Contatto Telegram</a>
+<a class="btn" href="https://t.me/Crowfamily2" target="_blank">💬 Contatto Telegram</a>
 
-    <!-- ✅ SOLO TASTO VETRINA -->
-    <a class="btn" href="#" target="_blank">🎥 VETRINA</a>
+<!-- ✅ TASTO VETRINA CHE APRE ALTRA PAGINA -->
+<a class="btn" href="vetrina.html">🎥 VETRINA</a>
 
-    <footer>🔥 CROW FAMILY — Only Real 🔥</footer>
+<footer>🔥 CROW FAMILY — Only Real 🔥</footer>
 
 </div>
 </body>
