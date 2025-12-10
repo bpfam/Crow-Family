@@ -1,97 +1,231 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>CROW FAMILY — VETRINA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CROW FAMILY — Vetrina Video</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #050505;
-    color: #fff;
-    text-align: center;
-}
+  :root{
+    --neon:#00eaff;
+    --bg1:#020815;
+    --bg2:#000;
+    --gap:10px;
+  }
 
-/* HEADER */
-header {
-    padding: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #ffae00;
-    text-shadow: 0 0 12px #ff5a00;
-}
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:system-ui, Arial, sans-serif;
+  }
 
-/* TASTO INDIETRO */
-.back {
-    display: inline-block;
-    margin: 12px 18px 8px 18px;
-    padding: 10px 20px;
-    background: #ff9d00;
-    color: #000;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-}
+  body{
+    min-height:100vh;
+    background:radial-gradient(circle at top,#10324b 0%,#020815 45%,#000 100%);
+    color:#e9f7ff;
+  }
 
-.sub {
-    font-size: 13px;
-    opacity: 0.75;
-    margin-bottom: 10px;
-}
+  /* HEADER */
+  header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px 14px;
+    background:linear-gradient(180deg,#051628,#020910);
+    border-bottom:1px solid rgba(0,234,255,.25);
+  }
 
-/* GRIGLIA */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap: 14px;
-    padding: 18px;
-}
+  .left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
 
-/* CARD */
-.item {
-    background: #111;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 0 12px #ff8a00aa;
-}
+  .back{
+    text-decoration:none;
+    padding:.45rem .9rem;
+    border:1px solid var(--neon);
+    border-radius:999px;
+    color:var(--neon);
+    font-size:12px;
+    box-shadow:0 0 12px rgba(0,234,255,.7);
+  }
 
-/* VIDEO */
-.item video {
-    width: 100%;
-    border-radius: 10px;
+  /* LOGO GRANDE */
+  .logo{
+    height:64px;
+    filter:
+      drop-shadow(0 0 14px rgba(0,220,255,.95))
+      drop-shadow(0 0 28px rgba(0,120,255,.8));
+  }
+
+  .title{
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#9fe8ff;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* GRID */
+  .wrap{ max-width:1200px; margin:0 auto; padding:16px; }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+    gap:10px;
+  }
+
+  .card{
+    padding:8px;
+    border-radius:12px;
+    background:#020202;
+    border:1px solid rgba(0,234,255,.3);
+    box-shadow:
+      0 0 0 1px rgba(0,234,255,.15) inset,
+      0 0 20px rgba(0,234,255,.35),
+      0 0 40px rgba(0,120,255,.25);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+
+  .card:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 32px rgba(0,234,255,.6);
+  }
+
+  /* MEDIA */
+  video,
+  img.media{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    border-radius:10px;
     background:#000;
-}
+  }
 
-/* TESTO SOTTO */
-.caption {
-    margin-top: 6px;
-    font-size: 12px;
-    opacity: 0.85;
-}
+  img.media{
+    aspect-ratio:1/1; /* le foto quadrate stanno meglio */
+  }
+
+  .name{
+    margin-top:6px;
+    text-align:center;
+    font-size:11px;
+    color:#9af6ff;
+    word-break:break-word;
+    opacity:.9;
+  }
+
+  .empty{
+    color:#9af6ff;
+    text-align:center;
+    padding:50px 14px;
+    font-size:13px;
+  }
+
+  footer{
+    text-align:center;
+    color:#9af6ff;
+    opacity:.75;
+    padding:26px 12px;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
 </style>
 </head>
 
 <body>
 
-<header>🎥 CROW FAMILY — VETRINA</header>
+<header>
+  <div class="left">
+    <a class="back" href="index.html">⬅️ Home</a>
+    <!-- 🔥 LOGO CROW FAMILY -->
+    <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family">
+    <div class="title">CROW FAMILY — Vetrina</div>
+  </div>
+</header>
 
-<a href="index.html" class="back">⬅️ Torna indietro</a>
-<div class="sub">Video ufficiali CROW FAMILY.</div>
-
-<div class="grid">
-
-    <!-- 🔥 VIDEO CROW FAMILY -->
-    <div class="item">
-        <video controls poster="">
-            <!-- ATTENZIONE: spazi = %20 -->
-            <source src="media/FLYFARM%20STATIC%20CALI.MP4" type="video/mp4">
-        </video>
-        <div class="caption">FLYFARM STATIC CALI</div>
-    </div>
-
+<div class="wrap">
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty" style="display:none;">Nessun file trovato nella cartella <b>media</b>.</div>
 </div>
+
+<footer>
+  © Crow Family • Only Real • Neon Street Style
+</footer>
+
+<script>
+(async () => {
+  // 👇 Repo e cartella dove carichi i file
+  const owner = "bpfam";
+  const repo  = "Crow-Family-";   // cambia solo se il repo ha un nome diverso
+  const path  = "media";          // cartella dove metti foto/video
+
+  const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  const grid  = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+
+  const VIDEO_RE = /\.(mp4|mov|m4v|webm)$/i;
+  const IMG_RE   = /\.(jpe?g|png|gif|webp)$/i;
+
+  try{
+    const res  = await fetch(api, { headers:{ "Accept":"application/vnd.github+json" }});
+    const data = await res.json();
+
+    const files = (Array.isArray(data)?data:[])
+      .filter(f => f.type === "file" && (VIDEO_RE.test(f.name) || IMG_RE.test(f.name)))
+      .sort((a,b)=> a.name.localeCompare(b.name));
+
+    if(!files.length){
+      empty.style.display = "block";
+      return;
+    }
+
+    for (const f of files) {
+      const encoded = encodeURIComponent(f.name);
+      const src = `${path}/${encoded}`;
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      let media;
+      if (VIDEO_RE.test(f.name)){
+        media = document.createElement('video');
+        media.controls   = true;
+        media.playsInline = true;
+        media.preload    = "metadata";
+      } else {
+        media = document.createElement('img');
+        media.classList.add('media');
+      }
+      media.src = src;
+
+      const name = document.createElement('div');
+      name.className = 'name';
+      name.textContent = f.name;
+
+      card.appendChild(media);
+      card.appendChild(name);
+      grid.appendChild(card);
+    }
+
+  }catch(e){
+    console.error(e);
+    empty.style.display = "block";
+    empty.textContent = "Errore nel caricare i file dalla cartella media.";
+  }
+})();
+</script>
 
 </body>
 </html>
