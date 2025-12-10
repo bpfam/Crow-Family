@@ -23,7 +23,7 @@ header {
     text-shadow: 0 0 12px #ff5a00;
 }
 
-/* BACK BUTTON */
+/* TASTO INDIETRO */
 .back {
     display: inline-block;
     margin: 12px 18px 8px 18px;
@@ -35,7 +35,6 @@ header {
     text-decoration: none;
 }
 
-/* SOTTOTITOLO */
 .sub {
     font-size: 13px;
     opacity: 0.75;
@@ -58,13 +57,6 @@ header {
     box-shadow: 0 0 12px #ff8a00aa;
 }
 
-/* FOTO */
-.item img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-}
-
 /* VIDEO */
 .item video {
     width: 100%;
@@ -72,7 +64,7 @@ header {
     background:#000;
 }
 
-/* TITOLO SOTTO CARD (OPZIONALE) */
+/* TESTO SOTTO */
 .caption {
     margin-top: 6px;
     font-size: 12px;
@@ -86,52 +78,17 @@ header {
 <header>🎥 CROW FAMILY — VETRINA</header>
 
 <a href="index.html" class="back">⬅️ Torna indietro</a>
-<div class="sub">Foto + Video direttamente dalla Family.</div>
+<div class="sub">Video ufficiali CROW FAMILY.</div>
 
 <div class="grid">
 
-    <!-- 🔥 VIDEO 1 (file in /media/video1.mp4) -->
+    <!-- 🔥 VIDEO CROW FAMILY -->
     <div class="item">
         <video controls poster="">
-            <source src="media/video1.mp4" type="video/mp4">
+            <!-- ATTENZIONE: spazi = %20 -->
+            <source src="media/FLYFARM%20STATIC%20CALI.MP4" type="video/mp4">
         </video>
-        <div class="caption">Video 1 — modifica testo</div>
-    </div>
-
-    <!-- 🔥 VIDEO 2 -->
-    <div class="item">
-        <video controls poster="">
-            <source src="media/video2.mp4" type="video/mp4">
-        </video>
-        <div class="caption">Video 2 — modifica testo</div>
-    </div>
-
-    <!-- 🔥 VIDEO 3 -->
-    <div class="item">
-        <video controls poster="">
-            <source src="media/video3.mp4" type="video/mp4">
-        </video>
-        <div class="caption">Video 3 — modifica testo</div>
-    </div>
-
-    <!-- 📸 FOTO 1 (immagine secca) -->
-    <div class="item">
-        <img src="https://via.placeholder.com/300x300" alt="Foto 1">
-        <div class="caption">Foto 1 — modifica testo</div>
-    </div>
-
-    <!-- 📸 FOTO 2 CHE APRE UN VIDEO ESTERNO (es. Telegram) -->
-    <div class="item">
-        <a href="https://t.me/tuocanale/123" target="_blank">
-            <img src="https://via.placeholder.com/300x300" alt="Foto 2">
-        </a>
-        <div class="caption">Foto 2 → apre video su Telegram</div>
-    </div>
-
-    <!-- 📸 FOTO 3 -->
-    <div class="item">
-        <img src="https://via.placeholder.com/300x300" alt="Foto 3">
-        <div class="caption">Foto 3 — modifica testo</div>
+        <div class="caption">FLYFARM STATIC CALI</div>
     </div>
 
 </div>
