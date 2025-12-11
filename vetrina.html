@@ -1,87 +1,113 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CROW FAMILY — Vetrina</title>
+<title>CROW FAMILY — VETRINA</title>
 
 <style>
-  body{
-    margin:0;
-    background:radial-gradient(circle at top,#3a1a00 0%,#120700 50%,#000 100%);
-    color:#ffb766;
-    font-family:system-ui, Arial;
+  :root{
+    --gold: #ffb44a;
+    --dark: #0a0400;
+    --card: #120900;
   }
 
+  *{ margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+
+  body{
+    background: radial-gradient(circle at top, #2a1200 0%, #0a0400 60%, #000 100%);
+    color: var(--gold);
+    text-align:center;
+  }
+
+  /* HEADER */
   header{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     padding:14px;
-    background:#1a0a00;
-    border-bottom:1px solid #ff8a00;
-    box-shadow:0 0 20px #ff8a00aa;
+    background:linear-gradient(180deg,#2a1200,#0d0600);
+    border-bottom:1px solid rgba(255,180,70,.3);
+    position:sticky;
+    top:0;
+    z-index:10;
   }
 
   .back{
     text-decoration:none;
     padding:10px 20px;
+    border-radius:12px;
     background:#ff8a00;
-    color:#000;
-    border-radius:18px;
     font-weight:bold;
-    box-shadow:0 0 15px #ff8a00aa;
+    color:#000;
+    box-shadow:0 0 14px #ff8a00;
   }
 
   .logo{
-    height:62px;
-    filter:drop-shadow(0 0 12px #ff8a00);
+    height:70px;
+    border-radius:10px;
+    box-shadow:
+      0 0 12px rgba(255,160,50,0.9),
+      0 0 24px rgba(255,120,20,0.7);
+  }
+
+  .title-box{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    color:var(--gold);
+    text-shadow:0 0 10px #ff8a00;
   }
 
   .title{
-    font-size:20px;
+    font-size:18px;
+    font-weight:bold;
     letter-spacing:2px;
   }
 
+  .sub{
+    font-size:12px;
+    opacity:0.9;
+  }
+
+  /* GRID */
   .wrap{
-    max-width:1100px;
-    margin:0 auto;
-    padding:16px;
+    max-width:1200px;
+    margin:20px auto;
+    padding:12px;
   }
 
   .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-    gap:14px;
+    grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+    gap:18px;
   }
 
   .card{
-    background:#1a0a00;
-    border:1px solid #ff8a00aa;
-    border-radius:14px;
+    background:var(--card);
     padding:10px;
-    box-shadow:0 0 25px #ff8a00aa;
-    text-align:center;
+    border-radius:12px;
+    border:1px solid rgba(255,180,70,0.3);
+    box-shadow:0 0 12px rgba(255,150,40,0.4);
   }
 
   video, img{
     width:100%;
-    height:220px;
-    object-fit:cover;
     border-radius:10px;
-    background:#000;
   }
 
   .name{
-    margin-top:6px;
     font-size:12px;
-    color:#ffca8a;
+    margin-top:6px;
+    color:var(--gold);
+    text-shadow:0 0 6px #ff8a00;
   }
 
-  .empty{
-    text-align:center;
+  footer{
     margin-top:40px;
-    font-size:14px;
+    padding:20px;
+    font-size:12px;
+    opacity:0.7;
   }
 </style>
 </head>
@@ -89,57 +115,56 @@
 <body>
 
 <header>
-  <a class="back" href="index.html">⬅️ Home</a>
-  <img class="logo" src="https://i.postimg.cc/1RgzW8Gk/crow.png">
-  <div class="title">CROW FAMILY — VETRINA</div>
+  <a href="index.html" class="back">⬅️ Home</a>
+
+  <!-- 🔥 LOGO UFFICIALE -->
+  <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family Logo">
+
+  <div class="title-box">
+    <div class="title">CROW FAMILY — VETRINA</div>
+    <div class="sub">ONLY REAL • STREET QUALITY</div>
+  </div>
 </header>
 
 <div class="wrap">
   <div id="grid" class="grid"></div>
-  <div id="empty" class="empty" style="display:none;">Nessun file trovato.</div>
+  <div id="empty" class="name" style="padding:40px; display:none;">Nessun file trovato.</div>
 </div>
+
+<footer>© CROW FAMILY • ONLY REAL • STREET QUALITY</footer>
 
 <script>
 (async () => {
-  const owner = "bpfam";
-  const repo  = "Crow-Family";
-  const path  = "media";
-  const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  const api = "https://api.github.com/repos/bpfam/Crow-Family/contents/media";
+  const VIDEO = /\.(mp4|mov|m4v|webm)$/i;
+  const IMAGE = /\.(jpg|jpeg|png|gif)$/i;
 
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
-
-  const VIDEO_RE = /\.(mp4|mov|m4v|webm)$/i;
-  const IMAGE_RE = /\.(jpg|jpeg|png|gif)$/i;
 
   try{
     const res = await fetch(api);
     const data = await res.json();
 
-    const files = (Array.isArray(data) ? data : [])
-      .filter(f => f.type === "file" && (VIDEO_RE.test(f.name) || IMAGE_RE.test(f.name)))
-      .sort((a,b)=> a.name.localeCompare(b.name));
+    const files = data.filter(f => f.type === "file" && (VIDEO.test(f.name) || IMAGE.test(f.name)));
 
     if(!files.length){
       empty.style.display = "block";
       return;
     }
 
-    for(const f of files){
+    files.forEach(f => {
       const card = document.createElement("div");
       card.className = "card";
 
-      const encoded = encodeURIComponent(f.name);
-      const src = `media/${encoded}`;
-
       let media;
-      if(VIDEO_RE.test(f.name)){
+      if (VIDEO.test(f.name)){
         media = document.createElement("video");
         media.controls = true;
-        media.src = src;
+        media.src = "media/" + encodeURIComponent(f.name);
       } else {
         media = document.createElement("img");
-        media.src = src;
+        media.src = "media/" + encodeURIComponent(f.name);
       }
 
       const name = document.createElement("div");
@@ -149,9 +174,9 @@
       card.appendChild(media);
       card.appendChild(name);
       grid.appendChild(card);
-    }
-  }
-  catch(err){
+    });
+
+  } catch(e){
     empty.style.display = "block";
     empty.textContent = "Errore nel caricare i file.";
   }
