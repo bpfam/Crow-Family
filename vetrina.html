@@ -1,157 +1,87 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>CROW FAMILY — VETRINA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CROW FAMILY — Vetrina</title>
 
 <style>
-  :root{
-    --crow-orange:#ff9d00;
-    --crow-deep:#050200;
-    --crow-bg:#000;
-  }
-
-  *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial, sans-serif;
-  }
-
   body{
-    min-height:100vh;
-    background: radial-gradient(circle at top, #2b1300 0%, #120400 45%, #000 100%);
-    color:#fff;
-    text-align:center;
+    margin:0;
+    background:radial-gradient(circle at top,#3a1a00 0%,#120700 50%,#000 100%);
+    color:#ffb766;
+    font-family:system-ui, Arial;
   }
 
-  /* HEADER */
   header{
-    position:sticky;
-    top:0;
-    z-index:10;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding:10px 14px;
-    background:linear-gradient(180deg,#1a0700,#050200);
-    border-bottom:1px solid rgba(255,157,0,.3);
-    box-shadow:0 10px 30px rgba(0,0,0,.6);
-  }
-
-  .head-left{
     display:flex;
     align-items:center;
     gap:12px;
+    padding:14px;
+    background:#1a0a00;
+    border-bottom:1px solid #ff8a00;
+    box-shadow:0 0 20px #ff8a00aa;
   }
 
-  .home-btn{
+  .back{
     text-decoration:none;
-    padding:.45rem 1.1rem;
-    border-radius:999px;
-    background: radial-gradient(circle at 20% 20%, #ffb347 0%, #ff7a00 45%, #b84300 100%);
+    padding:10px 20px;
+    background:#ff8a00;
     color:#000;
-    font-weight:700;
-    font-size:14px;
-    box-shadow:0 0 18px rgba(255,122,0,.9);
-    border:1px solid rgba(0,0,0,.3);
+    border-radius:18px;
+    font-weight:bold;
+    box-shadow:0 0 15px #ff8a00aa;
   }
 
   .logo{
-    height:54px;
-    border-radius:14px;
-    box-shadow:
-      0 0 0 2px rgba(0,0,0,.8),
-      0 0 24px rgba(255,122,0,.9);
-  }
-
-  .title-wrap{
-    text-align:left;
+    height:62px;
+    filter:drop-shadow(0 0 12px #ff8a00);
   }
 
   .title{
-    font-size:14px;
+    font-size:20px;
     letter-spacing:2px;
-    text-transform:uppercase;
-    color:#ffcf8a;
   }
 
-  .subtitle{
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#f8d4a0;
-    opacity:.85;
-  }
-
-  /* GRID */
   .wrap{
     max-width:1100px;
     margin:0 auto;
-    padding:18px 14px 32px;
-  }
-
-  #msg{
-    margin:36px 0 6px;
-    font-size:13px;
-    color:#ffcf8a;
+    padding:16px;
   }
 
   .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
     gap:14px;
-    margin-top:10px;
   }
 
-  .item{
-    background:#0c0c0c;
+  .card{
+    background:#1a0a00;
+    border:1px solid #ff8a00aa;
     border-radius:14px;
-    padding:9px;
-    box-shadow:
-      0 0 0 1px rgba(255,157,0,.2),
-      0 0 18px rgba(255,122,0,.35);
-    transition:transform .15s ease, box-shadow .15s ease;
+    padding:10px;
+    box-shadow:0 0 25px #ff8a00aa;
+    text-align:center;
   }
 
-  .item:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:
-      0 0 0 1px rgba(255,190,92,.6),
-      0 0 26px rgba(255,140,20,.7);
-  }
-
-  .item video,
-  .item img{
+  video, img{
     width:100%;
-    aspect-ratio:3/4;
+    height:220px;
     object-fit:cover;
     border-radius:10px;
     background:#000;
   }
 
-  .item img{
-    object-position:center;
-  }
-
   .name{
     margin-top:6px;
-    font-size:10px;
-    color:#ffcf8a;
-    opacity:.9;
-    word-break:break-word;
+    font-size:12px;
+    color:#ffca8a;
   }
 
-  footer{
+  .empty{
     text-align:center;
-    color:#ffcf8a;
-    opacity:.8;
-    padding:20px 10px 26px;
-    font-size:11px;
-    letter-spacing:2px;
-    text-transform:uppercase;
+    margin-top:40px;
+    font-size:14px;
   }
 </style>
 </head>
@@ -159,24 +89,15 @@
 <body>
 
 <header>
-  <div class="head-left">
-    <a href="index.html" class="home-btn">⬅️ Home</a>
-    <img class="logo" src="https://i.postimg.cc/Y98rr6D8/016EFE45-D449-4427-B50A-C5AD733A26C3.png" alt="Crow Family">
-    <div class="title-wrap">
-      <div class="title">CROW FAMILY — VETRINA</div>
-      <div class="subtitle">ONLY REAL • STREET QUALITY</div>
-    </div>
-  </div>
+  <a class="back" href="index.html">⬅️ Home</a>
+  <img class="logo" src="https://i.postimg.cc/1RgzW8Gk/crow.png">
+  <div class="title">CROW FAMILY — VETRINA</div>
 </header>
 
 <div class="wrap">
-  <div id="msg">Caricamento media…</div>
   <div id="grid" class="grid"></div>
+  <div id="empty" class="empty" style="display:none;">Nessun file trovato.</div>
 </div>
-
-<footer>
-  © CROW FAMILY • ONLY REAL • STREET QUALITY
-</footer>
 
 <script>
 (async () => {
@@ -186,70 +107,53 @@
   const api   = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
   const grid = document.getElementById("grid");
-  const msg  = document.getElementById("msg");
+  const empty = document.getElementById("empty");
 
-  const IMG_RE = /\.(jpe?g|png|webp|gif)$/i;
-  const VID_RE = /\.(mp4|mov|m4v|webm)$/i;
+  const VIDEO_RE = /\.(mp4|mov|m4v|webm)$/i;
+  const IMAGE_RE = /\.(jpg|jpeg|png|gif)$/i;
 
   try{
     const res = await fetch(api);
-    if(!res.ok){
-      throw new Error("HTTP " + res.status);
-    }
     const data = await res.json();
-    const files = Array.isArray(data) ? data : [];
 
-    let count = 0;
+    const files = (Array.isArray(data) ? data : [])
+      .filter(f => f.type === "file" && (VIDEO_RE.test(f.name) || IMAGE_RE.test(f.name)))
+      .sort((a,b)=> a.name.localeCompare(b.name));
 
-    files
-      .filter(f => f.type === "file")
-      .sort((a,b)=> a.name.localeCompare(b.name))
-      .forEach(f => {
-        const name = f.name;
-
-        let type = null;
-        if(VID_RE.test(name)) type = "video";
-        else if(IMG_RE.test(name)) type = "image";
-        else return; // estensione non supportata
-
-        const encoded = encodeURIComponent(name).replace(/%20/g,"+");
-        const src = `${path}/${encoded}`;
-
-        const card = document.createElement("div");
-        card.className = "item";
-
-        if(type === "video"){
-          const v = document.createElement("video");
-          v.controls = true;
-          v.playsInline = true;
-          v.preload = "metadata";
-          v.src = src;
-          card.appendChild(v);
-        } else {
-          const img = document.createElement("img");
-          img.src = src;
-          img.loading = "lazy";
-          card.appendChild(img);
-        }
-
-        const label = document.createElement("div");
-        label.className = "name";
-        label.textContent = name;
-        card.appendChild(label);
-
-        grid.appendChild(card);
-        count++;
-      });
-
-    if(!count){
-      msg.textContent = "Nessuna foto o video trovati nella cartella media.";
-    } else {
-      msg.textContent = "";
+    if(!files.length){
+      empty.style.display = "block";
+      return;
     }
 
-  }catch(e){
-    console.error(e);
-    msg.textContent = "Errore nel caricare i file dalla cartella media.";
+    for(const f of files){
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const encoded = encodeURIComponent(f.name);
+      const src = `media/${encoded}`;
+
+      let media;
+      if(VIDEO_RE.test(f.name)){
+        media = document.createElement("video");
+        media.controls = true;
+        media.src = src;
+      } else {
+        media = document.createElement("img");
+        media.src = src;
+      }
+
+      const name = document.createElement("div");
+      name.className = "name";
+      name.textContent = f.name;
+
+      card.appendChild(media);
+      card.appendChild(name);
+      grid.appendChild(card);
+    }
+  }
+  catch(err){
+    empty.style.display = "block";
+    empty.textContent = "Errore nel caricare i file.";
   }
 })();
 </script>
